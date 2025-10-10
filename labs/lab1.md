@@ -5,6 +5,8 @@ title: Lab1
 
 # Lab 1
 
+`STC1205A60S2`
+
 ## Terms
 
 -   流水灯
