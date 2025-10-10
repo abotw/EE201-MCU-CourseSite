@@ -1,23 +1,15 @@
 ---
-title: Introduction to Java
+title: Week 1
 ---
 
-Sep 28
-: [Java & Git](#)
-  : [1.1](#)
+Sep 22
+: [第1章 如何学习单片机](https://www.neiw.space/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC1%E7%AB%A0%20%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E5%8D%95%E7%89%87%E6%9C%BA/index.html)
 
-Sep 29
-: **Section**{: .label .label-purple }[Intro to Java](#)
-  : [Solution](#)
+Sep 24
+: [第2章 点亮你的LED机](https://www.neiw.space/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC2%E7%AB%A0%20%E7%82%B9%E4%BA%AE%E4%BD%A0%E7%9A%84LED/index.html)
 
-Sep 30
-: [Variables & Objects](#)
-  : [1.2](#), [2.1](#)
-
-Oct 1
-: **Lab**{: .label .label-purple } [Intro to Java](#)
-
-Oct 2
-: [Tracing, IntLists, & Recursion](#)
-  : [2.1](#)
-: **HW 1 due**{: .label .label-red }
+Sep 25
+: [第2章 点亮你的LED机](https://www.neiw.space/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC2%E7%AB%A0%20%E7%82%B9%E4%BA%AE%E4%BD%A0%E7%9A%84LED/index.html)
+  
+Sep 26
+: [第3章 硬件基础知识学习](https://www.neiw.space/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC3%E7%AB%A0%20%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E5%AD%A6%E4%B9%A0/index.html)

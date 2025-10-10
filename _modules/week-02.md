@@ -1,23 +1,6 @@
 ---
-title: Basic Data Structures
+title: Week 2
 ---
 
-Oct 5
-: [Linked Lists & Encapsulation](#)
-  : [3.1](#), [2.2](#), [2.3](#)
-
-Oct 6
-: **Section**{: .label .label-purple }[Linked Lists](#)
-  : [Solution](#)
-
-Oct 7
-: [Resizing Arrays](#)
-  : [2.4](#), [2.5](#)
-
-Oct 8
-: **Lab**{: .label .label-purple } [Resizing Arrays](#)
-
-Oct 9
-: [Runtime Analysis](#)
-  : [8.1](#), [8.2](#), [8.3](#), [8.4](#)
-: **HW 2 due**{: .label .label-red }
+Sep 29
+: [第4章 C语言基础以及流水灯的实现](https://www.neiw.space/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC4%E7%AB%A0%20C%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80%E4%BB%A5%E5%8F%8A%E6%B5%81%E6%B0%B4%E7%81%AF%E7%9A%84%E5%AE%9E%E7%8E%B0/index.html)
