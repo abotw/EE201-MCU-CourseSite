@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.github_repo }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Just the Class
+title: EE201-MCU
 tagline: A Jekyll template for course websites
 description: A modern, highly customizable, responsive Jekyll template for course websites
 author: Kevin Lin
@@ -28,10 +28,14 @@ search_enabled: true
 heading_anchors: true
 permalink: pretty
 aux_links:
-  Kevin Lin:
-    - 'https://kevinl.info'
-  Just the Class on GitHub:
-    - 'https://github.com/kevinlin1/just-the-class'
+  长江雨课堂:
+    - 'https://changjiang.yuketang.cn/v2/web/index'
+  Slides:
+    - 'https://www.neiw.space/#mcu'
+  Textbook:
+    - 'https://www.kingst.fans/docs/category/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%AD%A651%E5%8D%95%E7%89%87%E6%9C%BA/'
+  Repo:
+    - 'https://github.com/abotw/EE201-MCU-CourseSite'
 footer_content:
 
 # Collections for website data
