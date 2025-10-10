@@ -1,9 +1,59 @@
-*.gem
-.bundle/
-.jekyll-cache/
-.jekyll-metadata
-.sass-cache/
-Gemfile.lock
-_site/
-node_modules/
-vendor/
+# ==========================
+# macOS system files
+# ==========================
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# macOS folder attributes
+*.icloud
+*.icloud*
+.fseventsd
+.VolumeIcon.icns
+
+# ==========================
+# Obsidian-specific
+# ==========================
+
+# Obsidian workspace state (per-device)
+.obsidian/workspace.json
+
+# Obsidian appearance and window layout
+.obsidian/appearance.json
+.obsidian/app.json
+.obsidian/core-plugins-migration.json
+.obsidian/hotkeys.json
+
+# Obsidian cache and session data
+.obsidian/cache/
+.obsidian/plugins/obsidian-better-word-count/data.json
+.obsidian/plugins/obsidian-dataview/data.json
+.obsidian/plugins/obsidian-tasks-plugin/data.json
+.obsidian/plugins/obsidian-calendar/data.json
+.obsidian/plugins/obsidian-git/data.json
+.obsidian/plugins/*/data.json
+.obsidian/plugins/*/cache.json
+
+# ==========================
+# Backup or export folders
+# ==========================
+.backup/
+.backups/
+export/
+exports/
+temp/
+tmp/
+
+# ==========================
+# Log files
+# ==========================
+*.log
+*.tmp
+*.bak
+*.swp
