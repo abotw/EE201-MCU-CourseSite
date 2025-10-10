@@ -14,3 +14,10 @@ seo:
 
 -   [Kingst; 青岛金思特](https://www.qdkingst.com/cn)
 -   [STC89C51RC系列](https://www.stcmicro.com/cn/stc/stc89c51rc.html)
+-   [畅学电子网](http://eeskill.com/)
+
+---
+
+-   [在 macOS 下搭建 51 单片机开发环境](https://sspai.com/post/71802)
+-   [MacOS 开发51单片机【非虚拟机】](https://www.cnblogs.com/enixlin/p/17869756.html)
+
