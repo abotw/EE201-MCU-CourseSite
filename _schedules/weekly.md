@@ -1,66 +1,53 @@
 ---
 timeline:
-  - '9:00 AM'
-  - '9:30 AM'
+  - '8:20 AM'
+  - '9:05 AM'
+  - '9:15 AM'
   - '10:00 AM'
-  - '10:30 AM'
-  - '11:00 AM'
-  - '11:30 AM'
+  - '10:20 AM'
+  - '11:05 AM'
+  - '11:15 PM'
   - '12:00 PM'
-  - '12:30 PM'
-  - '1:00 PM'
-  - '1:30 PM'
   - '2:00 PM'
-  - '2:30 PM'
-  - '3:00 PM'
-  - '3:30 PM'
+  - '2:45 PM'
+  - '2:55 PM'
+  - '3:40 PM'
   - '4:00 PM'
-  - '4:30 PM'
-  - '5:00 PM'
-  - '5:30 PM'
+  - '4:45 PM'
+  - '4:55 PM'
+  - '5:40 PM'
 schedule:
   - name: Monday
     events:
       - name: Lecture
-        start: 9:30 AM
-        end: 10:30 AM
-        location: 150 Wheeler
-      - name: Section
-        start: 11:30 AM
-        end: 12:30 PM
-        location: 310 Soda
-      - name: Office Hours
-        start: 12:30 PM
-        end: 2:00 PM
-        location: 271 Soda
+        start: 2:00 PM
+        end: 3:40 PM
+        location: 36-208
   - name: Tuesday
   - name: Wednesday
     events:
+      - name: Lab
+        start: 8:20 AM
+        end: 10:00 AM
+        location: 36-403
       - name: Lecture
-        start: 9:30 AM
-        end: 10:30 AM
-        location: 150 Wheeler
-      - name: Section
-        start: 11:30 AM
-        end: 12:30 PM
-        location: 310 Soda
-      - name: Office Hours
-        start: 12:30 PM
-        end: 2:00 PM
-        location: 271 Soda
+        start: 10:20 AM
+        end: 12:00 PM
+        location: 36-205
   - name: Thursday
+    events:
+      - name: Lecture
+        start: 2:00 PM
+        end: 3:40 PM
+        location: 36-206
+      - name: Lab
+        start: 4:00 PM
+        end: 5:40 PM
+        location: 36-403
   - name: Friday
     events:
       - name: Lecture
-        start: 9:30 AM
-        end: 10:30 AM
-        location: 150 Wheeler
-      - name: Section
-        start: 11:30 AM
-        end: 12:30 PM
-        location: 310 Soda
-      - name: Office Hours
-        start: 12:30 PM
-        end: 2:00 PM
-        location: 271 Soda
+        start: 8:20 AM
+        end: 10:00 AM
+        location: 36-201
 ---
