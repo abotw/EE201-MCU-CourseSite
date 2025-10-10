@@ -32,7 +32,7 @@ schedule:
         location: 36-403
       - name: Lecture
         start: 10:20 AM
-        end: 12:00 AM
+        end: 12:00 PM
         location: 36-205
   - name: Thursday
     events:
