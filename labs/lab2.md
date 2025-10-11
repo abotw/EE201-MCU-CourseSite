@@ -154,3 +154,95 @@ void main()
 // pio run -t upload
 ```
 
+## 数码管动态显示
+
+### macOS
+
+```c
+/*
+ * File:   7segment_display_dynamic.c
+ * Author: Matt Lee
+ * Description: Main program for LED control on 8052 microcontroller
+ * Date:   2025-10-11
+ */
+
+#include <8052.h>
+
+// Define control pins for 7-segment display
+__sbit __at (0x90) ADDR0;   // P1^0
+__sbit __at (0x91) ADDR1;   // P1^1
+__sbit __at (0x92) ADDR2;   // P1^2
+__sbit __at (0x93) ADDR3;   // P1^3
+__sbit __at (0x94) ENLED;   // P1^4
+
+// 7-segment display character map for hexadecimal digits 0-F
+__code unsigned char LedChar[] = {
+    0xC0, 0xF9, 0xA4, 0xB0,
+    0x99, 0x92, 0x82, 0xF8,
+    0x80, 0x90, 0x88, 0x83,
+    0xC6, 0xA1, 0x86, 0x8E
+};
+
+// Buffer for 6 digits of the 7-segment display
+unsigned char LedBuff[6] = {
+    0xFF, 0xFF, 0xFF,
+    0xFF, 0xFF, 0xFF
+};
+
+// Function to scan and update the 7-segment display
+void DisplayScan(void) {
+    static unsigned char i = 0;
+    switch (i) {
+        case 0: ADDR2=0;ADDR1=0;ADDR0=0;P0=LedBuff[0]; break;
+        case 1: ADDR2=0;ADDR1=0;ADDR0=1;P0=LedBuff[1]; break;
+        case 2: ADDR2=0;ADDR1=1;ADDR0=0;P0=LedBuff[2]; break;
+        case 3: ADDR2=0;ADDR1=1;ADDR0=1;P0=LedBuff[3]; break;
+        case 4: ADDR2=1;ADDR1=0;ADDR0=0;P0=LedBuff[4]; break;
+        case 5: ADDR2=1;ADDR1=0;ADDR0=1;P0=LedBuff[5]; break;
+    }
+    i++;
+    if (i >= 6) i = 0;
+}
+
+void main()
+{
+    unsigned char i = 0;    // Loop variable
+    unsigned int cnt = 0;  // Record T0 overflow count
+    unsigned long sec = 0;  // Record seconds
+
+    ENLED = 0;      // Enable U3
+    ADDR3 = 1;      // Select U3
+    TMOD = 0x01;    // Timer0, Mode 1 (16-bit)
+    // Timer0 initial value for ~1ms at 11.0592MHz
+    TH0 = 0xFC;
+    TL0 = 0x67;
+    TR0 = 1;        // Start Timer0
+
+    while (1) {
+        if (TF0) { // Check Timer0 overflow flag
+            cnt++;
+            TF0 = 0; // Clear overflow flag
+            // Reload Timer0 initial value
+            TH0 = 0xFC;
+            TL0 = 0x67;
+            if (cnt >= 1000) {        // ~1 second
+                cnt = 0;
+                sec++;
+                LedBuff[0] = LedChar[sec % 10];          // Units
+                LedBuff[1] = LedChar[(sec / 10) % 10];   // Tens
+                LedBuff[2] = LedChar[(sec / 100) % 10];  // Hundreds
+                LedBuff[3] = LedChar[(sec / 1000) % 10]; // Thousands
+                LedBuff[4] = LedChar[(sec / 10000) % 10]; // Ten-thousands
+                LedBuff[5] = LedChar[(sec / 100000) % 10]; // Hundred-thousands
+                if (sec >= 999999) {
+                    sec = 0; // Reset after 999999
+                }
+            }
+            DisplayScan();
+        }
+    }
+}
+
+// pio run -t upload
+```
+
