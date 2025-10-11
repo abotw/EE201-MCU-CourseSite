@@ -4,6 +4,16 @@ title: Lab2
 ---
 # Lab 2: 数码管
 
+{:.no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
+
 ## 数码管真值表
 
 |字符|0|1|2|3|4|5|6|7|
