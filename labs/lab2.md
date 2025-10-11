@@ -3,7 +3,6 @@ layout: page
 title: Lab2
 ---
 # Lab 2: 数码管
-
 {:.no_toc}
 
 ## Table of contents
