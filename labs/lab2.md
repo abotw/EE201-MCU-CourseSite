@@ -2,7 +2,7 @@
 layout: page
 title: Lab2
 ---
-# Lab 2
+# Lab 2: 数码管
 
 ## 数码管真值表
 
@@ -22,7 +22,7 @@ __code unsigned char LedChar[] = {
 };
 ```
 
-## 数码管的静态显示
+## 数码管静态显示
 
 ### Windows
 
