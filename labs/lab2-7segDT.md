@@ -15,11 +15,13 @@ title: Lab2
 
 ## 数码管真值表
 
-|字符|0|1|2|3|4|5|6|7|
-|---|---|---|---|---|---|---|---|---|
-|数值|0xC0|0xF9|0xA4|0xB0|0x99|0x92|0x82|0xF8|
-|字符|8|9|A|B|C|D|E|F|
-|数值|0x80|0x90|0x88|0x83|0xC6|0xA1|0x86|0x8E|
+| 字符  | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
+| --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 数值  | 0xC0 | 0xF9 | 0xA4 | 0xB0 | 0x99 | 0x92 | 0x82 | 0xF8 |
+
+| 字符  | 8    | 9    | A    | B    | C    | D    | E    | F    |
+| --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
+| 数值  | 0x80 | 0x90 | 0x88 | 0x83 | 0xC6 | 0xA1 | 0x86 | 0x8E |
 
 ```c
 // 7-segment display character map for hexadecimal digits 0-F
@@ -253,5 +255,103 @@ void main()
 }
 
 // pio run -t upload
+```
+
+### 中断 (macOS)
+
+```c
+/*
+ * File:   7segment_display.c
+ * Author: Matt Lee
+ * Description: Display seconds on 6-digit 7-segment display using Timer0 interrupt
+ * Target: 8052 (e.g., Kingst51 board)
+ */
+
+#include <8052.h>
+
+// === Pin definitions ===
+__sbit __at (0x90) ADDR0;   // P1^0
+__sbit __at (0x91) ADDR1;   // P1^1
+__sbit __at (0x92) ADDR2;   // P1^2
+__sbit __at (0x93) ADDR3;   // P1^3
+__sbit __at (0x94) ENLED;   // P1^4
+
+// === 7-segment character table (0–F) ===
+__code unsigned char LedChar[] = {
+    0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8,
+    0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86, 0x8E
+};
+
+// === Display buffer ===
+unsigned char LedBuff[6] = { 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF };
+
+// === Global variables ===
+unsigned char i = 0;              // scan index
+unsigned int cnt = 0;             // Timer0 interrupt count
+volatile unsigned char flag1s = 0; // 1-second flag
+
+// === Timer0 Interrupt Service Routine ===
+void Timer0_ISR(void) __interrupt (1) __using (1)
+{
+    TH0 = 0xFC;   // reload for 1ms
+    TL0 = 0x67;
+    cnt++;
+
+    // 1-second flag
+    if (cnt >= 1000) {
+        cnt = 0;
+        flag1s = 1;
+    }
+
+    // === Dynamic display ===
+    P0 = 0xFF; // blank display
+    switch (i) {
+        case 0: ADDR2=0; ADDR1=0; ADDR0=0; P0=LedBuff[0]; break;
+        case 1: ADDR2=0; ADDR1=0; ADDR0=1; P0=LedBuff[1]; break;
+        case 2: ADDR2=0; ADDR1=1; ADDR0=0; P0=LedBuff[2]; break;
+        case 3: ADDR2=0; ADDR1=1; ADDR0=1; P0=LedBuff[3]; break;
+        case 4: ADDR2=1; ADDR1=0; ADDR0=0; P0=LedBuff[4]; break;
+        case 5: ADDR2=1; ADDR1=0; ADDR0=1; P0=LedBuff[5]; break;
+    }
+    i++;
+    if (i >= 6) i = 0;
+}
+
+// === Main function ===
+void main(void)
+{
+    unsigned long sec = 0;
+
+    // === Port initialization ===
+    P0 = 0xFF;
+    P1 = 0xFF;
+
+    ENLED = 0;   // enable LED display (U3)
+    ADDR3 = 1;   // select U3 (fixed)
+
+    // === Timer0 configuration ===
+    TMOD = 0x01; // Timer0, mode 1 (16-bit)
+    TH0  = 0xFC;
+    TL0  = 0x67;
+    ET0  = 1;    // enable Timer0 interrupt
+    EA   = 1;    // enable global interrupt
+    TR0  = 1;    // start Timer0
+
+    // === Main loop ===
+    while (1) {
+        if (flag1s) {
+            flag1s = 0;
+            sec++;
+            if (sec >= 1000000) sec = 0;
+
+            LedBuff[0] = LedChar[sec % 10];
+            LedBuff[1] = LedChar[(sec / 10) % 10];
+            LedBuff[2] = LedChar[(sec / 100) % 10];
+            LedBuff[3] = LedChar[(sec / 1000) % 10];
+            LedBuff[4] = LedChar[(sec / 10000) % 10];
+            LedBuff[5] = LedChar[(sec / 100000) % 10];
+        }
+    }
+}
 ```
 
