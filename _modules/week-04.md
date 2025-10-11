@@ -2,7 +2,9 @@
 title: Week 4
 ---
 
-Oct 13, Mon
+Oct 13
+: [第6章 中断与数码管动态显示](https://www.neiw.space/2025秋单片机原理与应用/课件第6章 中断与数码管动态显示/index.html)
+  : 6.5
 : [第7章 变量进阶与点阵LED](https://www.neiw.space/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC7%E7%AB%A0%20%E5%8F%98%E9%87%8F%E8%BF%9B%E9%98%B6%E4%B8%8E%E7%82%B9%E9%98%B5LED/index.html)
 
 Oct 15
