@@ -10,6 +10,14 @@ seo:
 
 # EE201 MCU, Fall 2025
 
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+## Calendar
+
 {% for module in site.modules %}
 {{ module }}
 {% endfor %}
