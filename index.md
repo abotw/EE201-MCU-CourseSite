@@ -10,6 +10,10 @@ seo:
 
 # EE201 MCU, Fall 2025
 
+{% for module in site.modules %}
+{{ module }}
+{% endfor %}
+
 ## Quick links
 
 -   [Kingst; 青岛金思特](https://www.qdkingst.com/cn)
