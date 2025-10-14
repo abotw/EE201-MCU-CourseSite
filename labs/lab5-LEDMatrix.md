@@ -17,6 +17,7 @@ parent: Labs
 
 ## Quick links
 
+- [788BS datasheet](attachments/troyka-led-matrix_788bs_datasheet.pdf)
 - [Control an 8x8 matrix of LEDs.](https://docs.arduino.cc/built-in-examples/display/RowColumnScanning/)
 - [波特律动](https://led.baud-dance.com/)
 - [LED Matrix Editor](https://xantorohara.github.io/led-matrix-editor/)
