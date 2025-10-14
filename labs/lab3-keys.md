@@ -1,14 +1,18 @@
 ---
-title: Lab3
+title: "Lab3: Keys"
 layout: page
 parent: Labs
 ---
 
 # Lab3
 
-![](labs/attachments/Pasted%20image%2020251014102143.png)
+## 矩阵按键电路
+
+<img src="labs/attachments/Pasted%20image%2020251014102242.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102242.png">
 
 ## P2
+
+<img src="labs/attachments/Pasted%20image%2020251014102144.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102144.png">
 
 ```c
 /* P2 */
@@ -21,10 +25,6 @@ __sbit __at (0xA5) P2_5 ; // KeyIn2
 __sbit __at (0xA6) P2_6 ; // KeyIn3
 __sbit __at (0xA7) P2_7 ; // KeyIn4
 ```
-
-![](labs/attachments/Pasted%20image%2020251014102144.png)
-
-![](labs/attachments/Pasted%20image%2020251014102242.png)
 
 ## 按下即亮
 

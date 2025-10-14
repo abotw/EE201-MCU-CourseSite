@@ -1,5 +1,5 @@
 ---
-title: "Lab2: 7SegDT"
+title: "Lab2: LED7SEG"
 layout: page
 parent: Labs
 ---
@@ -15,9 +15,9 @@ parent: Labs
 
 ---
 
-![](labs/attachments/Pasted%20image%2020251014113332.png)
+<img src="labs/attachments/Pasted%20image%2020251014113332.png" alt="LED显示及其驱动电路" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014113332.png">
 
-## 数码管真值表
+## Truth Tables
 
 | 字符  | 0    | 1    | 2    | 3    | 4    | 5    | 6    | 7    |
 | --- | ---- | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
