@@ -15,7 +15,7 @@ parent: Labs
 
 ---
 
-![](labs/attachments/Pasted%20image%2020251014113332.png)
+![](assets/images/labs/Pasted%20image%2020251014113332.png)
 
 ## 数码管真值表
 
