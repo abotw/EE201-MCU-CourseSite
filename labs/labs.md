@@ -16,8 +16,8 @@ title: Labs
 
 - 学校实验室芯片型号：`STC12C5A60S2`
 - Kingst51开发板芯片型号：`STC89C52RC/LE52RC`
-- [8051-8052-80C51-Hardware-Description.pdf](pdf/8051-8052-80C51-Hardware-Description.pdf)
-- [Kingst51开发板原理图.pdf](pdf/Kingst51开发板原理图.pdf)
+- [8051-8052-80C51-Hardware-Description.pdf](attachments/8051-8052-80C51-Hardware-Description.pdf)
+- [Kingst51开发板原理图.pdf](attachments/Kingst51开发板原理图.pdf)
 
 ## SFRs
 
