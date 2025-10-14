@@ -6,7 +6,7 @@ parent: Labs
 
 # Lab3
 
-![](labs/attachments/Pasted%20image%2020251014101033.png)
+![](labs/attachments/p1.png)
 
 ## P2
 
