@@ -6,7 +6,7 @@ parent: Labs
 
 # Lab3
 
-![](assets/images/labs/p1.png)
+![](labs/attachments/p1.png)
 
 ## P2
 
@@ -22,9 +22,9 @@ __sbit __at (0xA6) P2_6 ; // KeyIn3
 __sbit __at (0xA7) P2_7 ; // KeyIn4
 ```
 
-![](assets/images/labs/Pasted%20image%2020251014102144.png)
+![](labs/attachments/Pasted%20image%2020251014102144.png)
 
-![](assets/images/labs/Pasted%20image%2020251014102242.png)
+![](labs/attachments/Pasted%20image%2020251014102242.png)
 
 ## 按下即亮
 

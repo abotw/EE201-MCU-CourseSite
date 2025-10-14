@@ -2,6 +2,7 @@
 title: "Lab1: LED"
 layout: page
 parent: Labs
+baseurl: /labs/
 ---
 
 # Lab 1: LED
@@ -15,14 +16,14 @@ parent: Labs
 
 ---
 
-![LED显示、及其驱动电路](assets/images/labs/Pasted%20image%2020251014102352.png)
+![LED显示、及其驱动电路](labs/attachments/Pasted%20image%2020251014102352.png)
 
 - `LEDS0` - `LEDS5`: 7 segment display
 - `LEDS6`: LEDs
 
 ## P0
 
-![](assets/images/labs/Pasted%20image%2020251014102509.png)
+![](labs/attachments/Pasted%20image%2020251014102509.png)
 
 ```c
 /* P0 */
@@ -38,7 +39,7 @@ __sbit __at (0x87) P0_7 ;
 
 ## P1
 
-![](assets/images/labs/Pasted%20image%2020251014102538.png)
+![](labs/attachments/Pasted%20image%2020251014102538.png)
 
 ```c
 /* P1 */
@@ -54,7 +55,7 @@ __sbit __at (0x97) P1_7 ;
 
 ## 74HC138
 
-![](assets/images/labs/Pasted%20image%2020251014102805.png)
+![](labs/attachments/Pasted%20image%2020251014102805.png)
 
 - `ENLED = 0`: enabling `74HC138`
 - `ADDR3`
@@ -75,7 +76,7 @@ __sbit __at (0x97) P1_7 ;
 
 ## LEDS6
 
-![](assets/images/labs/Pasted%20image%2020251014103803.png)
+![](labs/attachments/Pasted%20image%2020251014103803.png)
 
 | DB  | LED |
 | --- | --- |
