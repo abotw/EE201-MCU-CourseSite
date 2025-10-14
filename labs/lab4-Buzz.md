@@ -1,8 +1,7 @@
 ---
-title: Lab5
+title: "Lab4: Buzz"
 layout: page
 parent: Labs
 ---
 
-# Lab5
-
+# Lab4: Buzz

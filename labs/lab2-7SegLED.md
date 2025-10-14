@@ -1,5 +1,5 @@
 ---
-title: "Lab2: LED7SEG"
+title: "Lab2: 7SegLED"
 layout: page
 parent: Labs
 ---
