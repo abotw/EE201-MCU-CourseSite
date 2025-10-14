@@ -4,7 +4,16 @@ layout: page
 parent: Labs
 ---
 
-# Lab3
+# Lab3: Keys
+{:.no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## 矩阵按键电路
 
