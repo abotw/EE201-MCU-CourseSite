@@ -1,6 +1,7 @@
 ---
-layout: page
 title: Lab1
+layout: page
+parent: Labs
 ---
 
 # Lab 1: LED

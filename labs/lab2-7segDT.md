@@ -1,7 +1,9 @@
 ---
-layout: page
 title: Lab2
+layout: page
+parent: Labs
 ---
+
 # Lab 2: 数码管
 {:.no_toc}
 
