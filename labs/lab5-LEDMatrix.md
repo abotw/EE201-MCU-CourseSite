@@ -5,14 +5,25 @@ parent: Labs
 ---
 
 # Lab5: LED Matrix
+{:.no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+---
 
 ## Quick links
 
 - [Control an 8x8 matrix of LEDs.](https://docs.arduino.cc/built-in-examples/display/RowColumnScanning/)
+- [波特律动](https://led.baud-dance.com/)
+- [LED Matrix Editor](https://xantorohara.github.io/led-matrix-editor/)
 
 <img src="labs/attachments/Pasted%20image%2020251014140039.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014140039.png">
 
-## 8 * 8 Digit Table
+## 8 * 8 LED Matrix Digits
 
 ```
 0xC1,0x9C,0x8C,0x84,0x90,0x98,0xC1,0xFF, // 0
@@ -323,6 +334,5 @@ void timer0_ISR(void) __interrupt(1)
         }
     }
 }
-
 ```
 
