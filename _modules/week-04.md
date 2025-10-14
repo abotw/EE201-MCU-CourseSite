@@ -17,7 +17,7 @@ Oct 15
 Oct 16
 : [第9章 步进电机与蜂鸣器](http://106.14.133.181/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC9%E7%AB%A0%20%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%E4%B8%8E%E8%9C%82%E9%B8%A3%E5%99%A8/index.html)
 : **Lab4**{: .label .label-purple } **验证**{: .label} [无源蜂鸣器](labs/lab4-无源蜂鸣器.pdf)
-: **Lab5**{: .label .label-purple } **综合**{: .label} [点阵LED](labs/lab5-点阵LED.pdf)
+: **Lab5**{: .label .label-purple } **综合**{: .label .label-yellow } [点阵LED](labs/lab5-点阵LED.pdf)
 
 Oct 17
 : [第10章 实例练习与经验积累](http://106.14.133.181/2025%E7%A7%8B%E5%8D%95%E7%89%87%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E5%BA%94%E7%94%A8/%E8%AF%BE%E4%BB%B6%E7%AC%AC10%E7%AB%A0%20%E5%AE%9E%E4%BE%8B%E7%BB%83%E4%B9%A0%E4%B8%8E%E7%BB%8F%E9%AA%8C%E7%A7%AF%E7%B4%AF/index.html)
