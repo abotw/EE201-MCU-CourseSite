@@ -15,7 +15,7 @@ parent: Labs
 
 ---
 
-![](labs/attachments/Pasted%20image%2020251014102352.png)
+![LED显示、及其驱动电路](labs/attachments/Pasted%20image%2020251014102352.png)
 
 - `LEDS0` - `LEDS5`: 7 segment display
 - `LEDS6`: LEDs
