@@ -1,5 +1,5 @@
 ---
-title: Lab2
+title: "Lab2: 7SegDT"
 layout: page
 parent: Labs
 ---
@@ -14,6 +14,8 @@ parent: Labs
 {:toc}
 
 ---
+
+![](attachments/Pasted%20image%2020251014113332.png)
 
 ## 数码管真值表
 

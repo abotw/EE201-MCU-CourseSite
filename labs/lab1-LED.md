@@ -1,5 +1,5 @@
 ---
-title: Lab1
+title: "Lab1: LED"
 layout: page
 parent: Labs
 ---
@@ -17,7 +17,7 @@ parent: Labs
 
 - 学校实验室芯片型号：`STC12C5A60S2`
 
-![](attachments/Pasted%20image%2020251014102352.png)
+![](./attachments/Pasted%20image%2020251014102352.png)
 
 - `LEDS0` - `LEDS5`: 7 segment display
 - `LEDS6`: LEDs
