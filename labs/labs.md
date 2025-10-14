@@ -4,9 +4,20 @@ title: Labs
 ---
 
 # Labs
+{:.no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
+
+## Quick links
 
 - 学校实验室芯片型号：`STC12C5A60S2`
 - Kingst51开发板芯片型号：`STC89C52RC/LE52RC`
+- ![8051-8052-80C51-Hardware-Description.pdf](assets/pdf/8051-8052-80C51-Hardware-Description.pdf)
+- ![Kingst51开发板原理图.pdf](assets/pdf/Kingst51开发板原理图.pdf)
 
 ## SFRs
 
