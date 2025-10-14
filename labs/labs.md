@@ -8,7 +8,19 @@ title: Labs
 - 学校实验室芯片型号：`STC12C5A60S2`
 - Kingst51开发板芯片型号：`STC89C52RC/LE52RC`
 
-## 单片机电路
+## SFRs
+
+<img src="labs/attachments/Pasted%20image%2020251014223704.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014223704.png">
+
+### Contents of the SFRs after reset
+
+<img src="labs/attachments/Pasted%20image%2020251014223838.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014223838.png">
+
+### SFR Memory Map
+
+<img src="labs/attachments/Pasted%20image%2020251014223929.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014223929.png">
+
+## 8051 单片机电路
 
 <img src="labs/attachments/Pasted%20image%2020251014102143.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102143.png">
 
