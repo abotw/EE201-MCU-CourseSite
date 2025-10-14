@@ -2,7 +2,6 @@
 title: "Lab1: LED"
 layout: page
 parent: Labs
-baseurl: /labs/
 ---
 
 # Lab 1: LED
@@ -16,7 +15,8 @@ baseurl: /labs/
 
 ---
 
-![LED显示、及其驱动电路](labs/attachments/Pasted%20image%2020251014102352.png)
+<img src="labs/attachments/Pasted%20image%2020251014102352.png" alt="LED显示" 
+     srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102352.png">
 
 - `LEDS0` - `LEDS5`: 7 segment display
 - `LEDS6`: LEDs
