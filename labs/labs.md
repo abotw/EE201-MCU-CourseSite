@@ -6,6 +6,7 @@ title: Labs
 # Labs
 
 - 学校实验室芯片型号：`STC12C5A60S2`
+- Kingst51开发板芯片型号：`STC89C52RC/LE52RC`
 
 ## 单片机电路
 
