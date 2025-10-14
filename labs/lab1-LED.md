@@ -22,7 +22,9 @@ parent: Labs
 - `LEDS0` - `LEDS5`: LED-7SEG
 - `LEDS6`: LEDs
 
-## 74HC138
+## 74HC138B
+
+- `CR1J07.1`
 
 <img src="labs/attachments/Pasted%20image%2020251014102805.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102805.png">
 
