@@ -74,6 +74,7 @@ __sbit __at (0x97) P1_7 ;
 | 1       | 0       | 1       | 5   |
 | 1       | 1       | 0       | 6   |
 | 1       | 1       | 1       | 7   |
+
 ## LEDS6
 
 ![](attachments/Pasted%20image%2020251014103803.png)
