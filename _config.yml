@@ -19,6 +19,7 @@ title: EE201-MCU
 # author: Kevin Lin
 baseurl: '/EE201-MCU-CourseSite' # the subpath of your site, e.g. /blog
 url: 'https://abotw.github.io' # the base hostname & protocol for your site, e.g. http://example.com
+relative_permalinks: true
 exclude: ["Gemfile", "Gemfile.lock", "LICENSE"]
 
 # Theme settings
