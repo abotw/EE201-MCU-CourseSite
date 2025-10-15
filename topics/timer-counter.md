@@ -1,6 +1,7 @@
 ---
 title: Timer/Counter
 layout: page
+parent: Topics
 ---
 
 # Timer/Counter
