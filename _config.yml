@@ -37,6 +37,7 @@ aux_links:
   Repo:
     - 'https://github.com/abotw/EE201-MCU-CourseSite'
 footer_content:
+math: mathjax
 
 # Collections for website data
 collections:
