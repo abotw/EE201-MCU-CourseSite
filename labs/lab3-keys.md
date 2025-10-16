@@ -270,6 +270,8 @@ void t0_isr(void) __interrupt(1)
 
 ## 矩阵键盘扫描：控制LED
 
+### macOS
+
 ```c
 #include <8052.h>
 
@@ -387,6 +389,158 @@ void t0_isr(void) __interrupt(1)
     KEY_OUT_3 = 1;
     KEY_OUT_4 = 1;
 
+}
+```
+
+### Windows
+
+```c
+#include <reg52.h>    // 使用 Keil 标准头文件
+
+//========================
+// 定义按键输入输出引脚
+//========================
+sbit KEY_IN_1  = P2^0;
+sbit KEY_IN_2  = P2^1;
+sbit KEY_IN_3  = P2^2;
+sbit KEY_IN_4  = P2^3;
+
+sbit KEY_OUT_1 = P2^4;
+sbit KEY_OUT_2 = P2^5;
+sbit KEY_OUT_3 = P2^6;
+sbit KEY_OUT_4 = P2^7;
+
+//========================
+// 全局变量
+//========================
+unsigned char KeyState[4][4] = {
+    {1,1,1,1},
+    {1,1,1,1},
+    {1,1,1,1},
+    {1,1,1,1}
+};
+
+//========================
+// 函数声明
+//========================
+void Timer0_Init(void);
+void ScanKeys(void);
+
+//========================
+// 主函数
+//========================
+void main(void)
+{
+    unsigned char i, j;
+    unsigned char PrevKeyState[4][4] = {
+        {1,1,1,1},
+        {1,1,1,1},
+        {1,1,1,1},
+        {1,1,1,1}
+    };
+
+    EA = 1;          // 允许总中断
+    Timer0_Init();   // 初始化定时器0
+    P0 = 0xFF;       // 熄灭所有LED（低电平点亮）
+
+    while(1)
+    {
+        for (i = 0; i < 4; i++)
+        {
+            for (j = 0; j < 4; j++)
+            {
+                if (KeyState[i][j] != PrevKeyState[i][j])
+                {
+                    if (PrevKeyState[i][j] == 1 && KeyState[i][j] == 0)
+                    {
+                        // 按键按下
+                        unsigned char keyVal = i * 4 + j;
+
+                        // 仅控制前6个LED（P0^0 - P0^5）
+                        if (keyVal < 6)
+                            P0 = ~(1 << keyVal);
+                    }
+                    else if (PrevKeyState[i][j] == 0 && KeyState[i][j] == 1)
+                    {
+                        // 按键松开：全部熄灭
+                        P0 = 0xFF;
+                    }
+
+                    PrevKeyState[i][j] = KeyState[i][j];
+                }
+            }
+        }
+    }
+}
+
+//========================
+// 定时器0初始化（1ms）
+//========================
+void Timer0_Init(void)
+{
+    TMOD &= 0xF0;    // 清除 T0 控制位
+    TMOD |= 0x01;    // 设置定时器0为模式1（16位）
+    TH0 = 0xFC;      // 1ms 高8位
+    TL0 = 0x66;      // 1ms 低8位
+    ET0 = 1;         // 允许T0中断
+    TR0 = 1;         // 启动T0
+}
+
+//========================
+// 定时器0中断服务函数
+//========================
+void Timer0_ISR(void) interrupt 1
+{
+    unsigned char i;
+    static unsigned char scan_row = 0;
+    static unsigned char KeyBuf[4][4] = {
+        {0xFF,0xFF,0xFF,0xFF},
+        {0xFF,0xFF,0xFF,0xFF},
+        {0xFF,0xFF,0xFF,0xFF},
+        {0xFF,0xFF,0xFF,0xFF}
+    };
+
+    TH0 = 0xFC;      // 重装计数值
+    TL0 = 0x66;
+
+    //========================
+    // 扫描矩阵按键
+    //========================
+
+    // 先将所有输出行置高
+    KEY_OUT_1 = 1;
+    KEY_OUT_2 = 1;
+    KEY_OUT_3 = 1;
+    KEY_OUT_4 = 1;
+
+    // 仅激活当前行
+    switch (scan_row)
+    {
+        case 0: KEY_OUT_1 = 0; break;
+        case 1: KEY_OUT_2 = 0; break;
+        case 2: KEY_OUT_3 = 0; break;
+        case 3: KEY_OUT_4 = 0; break;
+        default: break;
+    }
+
+    // 读取输入列
+    KeyBuf[scan_row][0] = (KeyBuf[scan_row][0] << 1) | KEY_IN_1;
+    KeyBuf[scan_row][1] = (KeyBuf[scan_row][1] << 1) | KEY_IN_2;
+    KeyBuf[scan_row][2] = (KeyBuf[scan_row][2] << 1) | KEY_IN_3;
+    KeyBuf[scan_row][3] = (KeyBuf[scan_row][3] << 1) | KEY_IN_4;
+
+    // 去抖动处理（连续4次一致才判定）
+    for (i = 0; i < 4; i++)
+    {
+        if ((KeyBuf[scan_row][i] & 0x0F) == 0x00)
+            KeyState[scan_row][i] = 0;   // 按下
+        else if ((KeyBuf[scan_row][i] & 0x0F) == 0x0F)
+            KeyState[scan_row][i] = 1;   // 松开
+    }
+
+    // 下一行
+    scan_row++;
+    scan_row &= 0x03;
 }
 ```
 
