@@ -139,85 +139,255 @@ void main(void)
 }
 ```
 
-## 矩阵键盘扫描 + 控制LED
+## 矩阵键盘扫描：控制单个数码管
 
 ```c
-#include <reg52.h>
+#include <8052.h>
 
-#define LED_PORT P0   // LED9-14 对应 P0.0~P0.5
-#define KEY_PORT P2   // P2.0~P2.3 为列输出，P2.4~P2.7 为行输入
+__sbit __at (0x90) ADDR0;   // P1^0
+__sbit __at (0x91) ADDR1;   // P1^1
+__sbit __at (0x92) ADDR2;   // P1^2
+__sbit __at (0x93) ADDR3;   // P1^3
+__sbit __at (0x94) ENLED;   // P1^4
 
-// 简单延时
-void delay_ms(unsigned int ms)
+__sbit __at (0xA0) KEY_OUT_4; // P2.0
+__sbit __at (0xA1) KEY_OUT_3; // P2.1
+__sbit __at (0xA2) KEY_OUT_2; // P2.2
+__sbit __at (0xA3) KEY_OUT_1; // P2.3
+__sbit __at (0xA4) KEY_IN_1;  // P2.4
+__sbit __at (0xA5) KEY_IN_2;  // P2.5
+__sbit __at (0xA6) KEY_IN_3;  // P2.6
+__sbit __at (0xA7) KEY_IN_4;  // P2.7
+
+__code unsigned char LEDChar[] = {
+    0xC0, 0xF9, 0xA4, 0xB0,
+    0x99, 0x92, 0x82, 0xF8,
+    0x80, 0x90, 0x88, 0x83,
+    0xC6, 0xA1, 0x86, 0x8E
+};
+
+unsigned char KeyState[4][4] = {
+    {1, 1, 1, 1},
+    {1, 1, 1, 1},
+    {1, 1, 1, 1},
+    {1, 1, 1, 1},
+};
+
+void main(void)
 {
-    unsigned int i, j;
-    for(i = 0; i < ms; i++)
-        for(j = 0; j < 120; j++);
-}
+    unsigned char i, j;
+    unsigned char PrevKeyState[4][4] = {
+        {1, 1, 1, 1},
+        {1, 1, 1, 1},
+        {1, 1, 1, 1},
+        {1, 1, 1, 1},
+    };
 
-// 扫描矩阵键盘，返回按键编号（0~15），无按键返回0xFF
-unsigned char key_scan()
-{
-    unsigned char col, row;
-    unsigned char key_value = 0xFF;
+    EA = 1;
+    ENLED = 0;
+    ADDR3 = 1;
+    ADDR2 = 0;
+    ADDR1 = 0;
+    ADDR0 = 0;
+    TMOD = 0x01; // Timer0 mode1
+    TH0 = 0xFC;  // Load high byte for 1ms
+    TL0 = 0x66;  // Load low byte for 1ms
+    ET0 = 1;     // Enable Timer0 interrupt
+    TR0 = 1;     // Start Timer0
+    P0 = LEDChar[0];
 
-    // 所有列输出高电平（未选中）
-    KEY_PORT |= 0x0F;   // 低四位列线为输出
-    for(col = 0; col < 4; col++)
-    {
-        // 设置列输出：当前列低，其余列高
-        KEY_PORT = (KEY_PORT & 0xF0) | (~(1 << col) & 0x0F);
-        delay_ms(2);  // 稳定时间
-
-        // 读取行输入
-        row = (KEY_PORT & 0xF0) >> 4;
-        if(row != 0x0F)   // 检测到低电平
-        {
-            delay_ms(10); // 防抖
-            row = (KEY_PORT & 0xF0) >> 4;
-            if(row != 0x0F)
-            {
-                // 判断哪一行按下
-                if((row & 0x01) == 0) key_value = 0 * 4 + col; // 第1行
-                else if((row & 0x02) == 0) key_value = 1 * 4 + col; // 第2行
-                else if((row & 0x04) == 0) key_value = 2 * 4 + col; // 第3行
-                else if((row & 0x08) == 0) key_value = 3 * 4 + col; // 第4行
-
-                while(((KEY_PORT & 0xF0) >> 4) != 0x0F);  // 等待松手
-                return key_value;
-            }
-        }
-    }
-
-    return 0xFF; // 无按键
-}
-
-void main()
-{
-    unsigned char key;
-    LED_PORT = 0xFF;  // 所有LED灭（假设低电平点亮）
-
-    while(1)
-    {
-        key = key_scan();
-
-        if(key != 0xFF)
-        {
-            // 根据行列号计算对应LED
-            switch(key)
-            {
-                case 0: LED_PORT = ~(1 << 0); break; // R1C1 -> LED9 (P0.0)
-                case 1: LED_PORT = ~(1 << 1); break; // R1C2 -> LED10 (P0.1)
-                case 2: LED_PORT = ~(1 << 2); break; // R1C3 -> LED11 (P0.2)
-                case 3: LED_PORT = ~(1 << 3); break; // R1C4 -> LED12 (P0.3)
-                case 4: LED_PORT = ~(1 << 4); break; // R2C1 -> LED13 (P0.4)
-                case 5: LED_PORT = ~(1 << 5); break; // R2C2 -> LED14 (P0.5)
-                default: LED_PORT = 0xFF; break;     // 其他键不处理
+    while (1) {
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (KeyState[i][j] != PrevKeyState[i][j]) {
+                    if (PrevKeyState[i][j]) {
+                        // Key pressed
+                        unsigned char keyVal = i * 4 + j;
+                        P0 = LEDChar[keyVal];
+                    } else {
+                        // Key released
+                    }
+                    PrevKeyState[i][j] = KeyState[i][j];
+                }
             }
         }
     }
 }
 
+void t0_isr(void) __interrupt(1)
+{
+    unsigned char i = 0;
+    static unsigned char scan_row = 0;
+    static unsigned char KeyBuf[4][4] = {
+        {0xFF, 0xFF, 0xFF, 0xFF},
+        {0xFF, 0xFF, 0xFF, 0xFF},
+        {0xFF, 0xFF, 0xFF, 0xFF},
+        {0xFF, 0xFF, 0xFF, 0xFF},
+    };
+
+    TH0 = 0xFC; // Reload high byte for 1ms
+    TL0 = 0x66; // Reload low byte for 1ms
+
+    switch(scan_row) {
+        case 0:
+            KEY_OUT_1 = 0;
+            break;
+        case 1:
+            KEY_OUT_2 = 0;
+            break;
+        case 2:
+            KEY_OUT_3 = 0;
+            break;
+        case 3:
+            KEY_OUT_4 = 0;
+            break;
+        default:
+            break;
+    }
+
+    KeyBuf[scan_row][0] = (KeyBuf[scan_row][0] << 1) | KEY_IN_1;
+    KeyBuf[scan_row][1] = (KeyBuf[scan_row][1] << 1) | KEY_IN_2;
+    KeyBuf[scan_row][2] = (KeyBuf[scan_row][2] << 1) | KEY_IN_3;
+    KeyBuf[scan_row][3] = (KeyBuf[scan_row][3] << 1) | KEY_IN_4;
+
+    for (i = 0; i < 4; i++) {
+        if ((KeyBuf[scan_row][i] & 0x0F) == 0x00) {
+            KeyState[scan_row][i] = 0; // Key pressed
+        } else if ((KeyBuf[scan_row][i] & 0x0F) == 0x0F) {
+            KeyState[scan_row][i] = 1; // Key released
+        }
+    }
+
+    scan_row = (++scan_row & 0x03);
+
+    KEY_OUT_1 = 1;
+    KEY_OUT_2 = 1;
+    KEY_OUT_3 = 1;
+    KEY_OUT_4 = 1;
+
+}
+```
+
+## 矩阵键盘扫描：控制LED
+
+```c
+#include <8052.h>
+
+__sbit __at (0x90) ADDR0;   // P1^0
+__sbit __at (0x91) ADDR1;   // P1^1
+__sbit __at (0x92) ADDR2;   // P1^2
+__sbit __at (0x93) ADDR3;   // P1^3
+__sbit __at (0x94) ENLED;   // P1^4
+
+__sbit __at (0xA0) KEY_OUT_4; // P2.0
+__sbit __at (0xA1) KEY_OUT_3; // P2.1
+__sbit __at (0xA2) KEY_OUT_2; // P2.2
+__sbit __at (0xA3) KEY_OUT_1; // P2.3
+__sbit __at (0xA4) KEY_IN_1;  // P2.4
+__sbit __at (0xA5) KEY_IN_2;  // P2.5
+__sbit __at (0xA6) KEY_IN_3;  // P2.6
+__sbit __at (0xA7) KEY_IN_4;  // P2.7
+
+unsigned char KeyState[4][4] = {
+    {1, 1, 1, 1},
+    {1, 1, 1, 1},
+    {1, 1, 1, 1},
+    {1, 1, 1, 1},
+};
+
+void main(void)
+{
+    unsigned char i, j;
+    unsigned char PrevKeyState[4][4] = {
+        {1, 1, 1, 1},
+        {1, 1, 1, 1},
+        {1, 1, 1, 1},
+        {1, 1, 1, 1},
+    };
+
+    EA = 1;
+    ENLED = 0;
+    ADDR3 = 1;
+    ADDR2 = 1;
+    ADDR1 = 1;
+    ADDR0 = 0;
+    TMOD = 0x01; // Timer0 mode1
+    TH0 = 0xFC;  // Load high byte for 1ms
+    TL0 = 0x66;  // Load low byte for 1ms
+    ET0 = 1;     // Enable Timer0 interrupt
+    TR0 = 1;     // Start Timer0
+    P0 = 0xFF; // Turn off all LEDs;
+
+    while (1) {
+        for (i = 0; i < 4; i++) {
+            for (j = 0; j < 4; j++) {
+                if (KeyState[i][j] != PrevKeyState[i][j]) {
+                    if (PrevKeyState[i][j]) {
+                        // Key pressed
+                        unsigned char keyVal = i * 4 + j;
+                        P0 = ~(0x01 << keyVal);
+                    } else {
+                        // Key released
+                    }
+                    PrevKeyState[i][j] = KeyState[i][j];
+                }
+            }
+        }
+    }
+}
+
+void t0_isr(void) __interrupt(1)
+{
+    unsigned char i = 0;
+    static unsigned char scan_row = 0;
+    static unsigned char KeyBuf[4][4] = {
+        {0xFF, 0xFF, 0xFF, 0xFF},
+        {0xFF, 0xFF, 0xFF, 0xFF},
+        {0xFF, 0xFF, 0xFF, 0xFF},
+        {0xFF, 0xFF, 0xFF, 0xFF},
+    };
+
+    TH0 = 0xFC; // Reload high byte for 1ms
+    TL0 = 0x66; // Reload low byte for 1ms
+
+    switch(scan_row) {
+        case 0:
+            KEY_OUT_1 = 0;
+            break;
+        case 1:
+            KEY_OUT_2 = 0;
+            break;
+        case 2:
+            KEY_OUT_3 = 0;
+            break;
+        case 3:
+            KEY_OUT_4 = 0;
+            break;
+        default:
+            break;
+    }
+
+    KeyBuf[scan_row][0] = (KeyBuf[scan_row][0] << 1) | KEY_IN_1;
+    KeyBuf[scan_row][1] = (KeyBuf[scan_row][1] << 1) | KEY_IN_2;
+    KeyBuf[scan_row][2] = (KeyBuf[scan_row][2] << 1) | KEY_IN_3;
+    KeyBuf[scan_row][3] = (KeyBuf[scan_row][3] << 1) | KEY_IN_4;
+
+    for (i = 0; i < 4; i++) {
+        if ((KeyBuf[scan_row][i] & 0x0F) == 0x00) {
+            KeyState[scan_row][i] = 0; // Key pressed
+        } else if ((KeyBuf[scan_row][i] & 0x0F) == 0x0F) {
+            KeyState[scan_row][i] = 1; // Key released
+        }
+    }
+
+    scan_row = (++scan_row & 0x03);
+
+    KEY_OUT_1 = 1;
+    KEY_OUT_2 = 1;
+    KEY_OUT_3 = 1;
+    KEY_OUT_4 = 1;
+
+}
 ```
 
 
