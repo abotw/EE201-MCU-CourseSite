@@ -15,6 +15,11 @@ parent: Labs
 
 ---
 
+## Key Terms
+
+- 动态扫描
+- 动画
+
 ## Quick links
 
 - [788BS datasheet](attachments/troyka-led-matrix_788bs_datasheet.pdf)
