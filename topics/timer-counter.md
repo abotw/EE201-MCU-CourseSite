@@ -5,6 +5,13 @@ parent: Topics
 ---
 
 # Timer/Counter
+{:.no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 - Kingst51 晶振：11.0592M
 - 时钟周期：$\frac{1}{11059200}$
