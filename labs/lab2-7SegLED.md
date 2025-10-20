@@ -4,7 +4,7 @@ layout: page
 parent: Labs
 ---
 
-# Lab 2: 数码管
+# Lab 2: 7SegLED | 七段数码管
 {:.no_toc}
 
 ## Table of contents
@@ -12,8 +12,6 @@ parent: Labs
 
 1. TOC
 {:toc}
-
----
 
 <img src="labs/attachments/Pasted%20image%2020251014113332.png" alt="LED显示及其驱动电路" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014113332.png">
 

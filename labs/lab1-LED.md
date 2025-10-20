@@ -13,8 +13,6 @@ parent: Labs
 1. TOC
 {:toc}
 
----
-
 ## LED显示及其驱动电路
 
 <img src="labs/attachments/Pasted%20image%2020251014102352.png" alt="LED显示及其驱动电路" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102352.png">

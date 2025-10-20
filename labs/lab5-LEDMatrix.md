@@ -13,8 +13,6 @@ parent: Labs
 1. TOC
 {:toc}
 
----
-
 ## Key Terms
 
 - 动态扫描

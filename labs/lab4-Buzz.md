@@ -4,7 +4,14 @@ layout: page
 parent: Labs
 ---
 
-# Lab4: Buzz
+# Lab4: Buzz | 蜂鸣器
+{:.no_toc}
+
+## Table of contents
+{: .no_toc .text-delta }
+
+1. TOC
+{:toc}
 
 ## 蜂鸣器
 

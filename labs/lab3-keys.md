@@ -13,8 +13,6 @@ parent: Labs
 1. TOC
 {:toc}
 
----
-
 ## 矩阵按键电路
 
 <img src="labs/attachments/Pasted%20image%2020251014102242.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102242.png">

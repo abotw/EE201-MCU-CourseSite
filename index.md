@@ -17,12 +17,6 @@ seo:
 1. TOC
 {:toc}
 
-## Calendar
-
-{% for module in site.modules %}
-{{ module }}
-{% endfor %}
-
 ## Quick links
 
 - [Xantorohara projects](https://xantorohara.github.io/)
