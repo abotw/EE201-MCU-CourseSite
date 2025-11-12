@@ -9,13 +9,6 @@ seo:
 ---
 
 # EE201 MCU, Fall 2025
-{:.no_toc}
-
-## Table of contents
-{: .no_toc .text-delta }
-
-1. TOC
-{:toc}
 
 ## Quick links
 
