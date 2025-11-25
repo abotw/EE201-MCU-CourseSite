@@ -1,3 +1,6 @@
+---
+parent: Topics
+---
 
 # PlatformIO: A Modern Ecosystem for Embedded Development
 {:.no_toc}
