@@ -12,6 +12,10 @@ seo:
 
 ## Quick links
 
+- [Vikram Iyer](https://homes.cs.washington.edu/~vsiyer/) @UW
+
+---
+
 - [Xantorohara projects](https://xantorohara.github.io/)
 - [ESP32 单片机](https://docs.geeksman.com/esp32/)
 - [Kingst; 青岛金思特](https://www.qdkingst.com/cn)
