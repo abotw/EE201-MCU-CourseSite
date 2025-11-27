@@ -36,8 +36,8 @@ aux_links:
     - 'https://www.kingst.fans/docs/category/%E6%89%8B%E6%8A%8A%E6%89%8B%E6%95%99%E4%BD%A0%E5%AD%A651%E5%8D%95%E7%89%87%E6%9C%BA/'
   Repo:
     - 'https://github.com/abotw/EE201-MCU-CourseSite'
-footer_content:
 math: mathjax
+footer_content:
 
 # Collections for website data
 collections:

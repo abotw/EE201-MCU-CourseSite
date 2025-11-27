@@ -8,7 +8,7 @@ seo:
   name: EE201-MCU
 ---
 
-# EE201 MCU, Fall 2025
+# EE201-MCU, Fall 2025
 
 ## Quick links
 
@@ -27,4 +27,3 @@ seo:
 
 -   [在 macOS 下搭建 51 单片机开发环境](https://sspai.com/post/71802)
 -   [MacOS 开发51单片机【非虚拟机】](https://www.cnblogs.com/enixlin/p/17869756.html)
-

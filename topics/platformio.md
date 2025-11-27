@@ -1,5 +1,6 @@
 ---
 parent: Topics
+title: PlatformIO
 ---
 
 # PlatformIO: A Modern Ecosystem for Embedded Development
