@@ -165,6 +165,8 @@ sbit P0_7_Alias = P0^7;
 
 <img src="labs/attachments/Pasted%20image%2020251014102538.png" alt="" srcset="{{ site.baseurl }}/labs/attachments/Pasted%20image%2020251014102538.png">
 
+- `P1^0` - `P1^4`: `P1`低4位接74HC138，来控制6位数码管的位选
+
 ```c
 /* P1 */
 __sbit __at (0x90) P1_0 ; // ADDR0
