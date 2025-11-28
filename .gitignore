@@ -1,59 +1,101 @@
-# ==========================
-# macOS system files
-# ==========================
+# Created by https://www.toptal.com/developers/gitignore/api/macos,linux,windows,obsidian,visualstudiocode
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,linux,windows,obsidian,visualstudiocode
+
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### macOS ###
+# General
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Icon must end with two \r
 Icon
+
+
+# Thumbnails
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
 
-# macOS folder attributes
-*.icloud
-*.icloud*
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
 .fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
 .VolumeIcon.icns
+.com.apple.timemachine.donotpresent
 
-# ==========================
-# Obsidian-specific
-# ==========================
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
 
-# Obsidian workspace state (per-device)
-.obsidian/workspace.json
+### macOS Patch ###
+# iCloud generated files
+*.icloud
 
-# Obsidian appearance and window layout
-.obsidian/appearance.json
-.obsidian/app.json
-.obsidian/core-plugins-migration.json
-.obsidian/hotkeys.json
+### Obsidian ###
+# config dir
+.obsidian/
 
-# Obsidian cache and session data
-.obsidian/cache/
-.obsidian/plugins/obsidian-better-word-count/data.json
-.obsidian/plugins/obsidian-dataview/data.json
-.obsidian/plugins/obsidian-tasks-plugin/data.json
-.obsidian/plugins/obsidian-calendar/data.json
-.obsidian/plugins/obsidian-git/data.json
-.obsidian/plugins/*/data.json
-.obsidian/plugins/*/cache.json
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
 
-# ==========================
-# Backup or export folders
-# ==========================
-.backup/
-.backups/
-export/
-exports/
-temp/
-tmp/
+# Local History for Visual Studio Code
+.history/
 
-# ==========================
-# Log files
-# ==========================
-*.log
-*.tmp
-*.bak
-*.swp
+# Built Visual Studio Code Extensions
+*.vsix
+
+### VisualStudioCode Patch ###
+# Ignore all local history of files
+.history
+.ionide
+
+### Windows ###
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# End of https://www.toptal.com/developers/gitignore/api/macos,linux,windows,obsidian,visualstudiocode
